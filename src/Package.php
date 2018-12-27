@@ -1,11 +1,11 @@
 <?php
-namespace KiwiSuite\Event;
+namespace Ixocreate\Event;
 
-use KiwiSuite\Contract\Application\ConfiguratorRegistryInterface;
-use KiwiSuite\Contract\Application\PackageInterface;
-use KiwiSuite\Contract\Application\ServiceRegistryInterface;
-use KiwiSuite\Contract\ServiceManager\ServiceManagerInterface;
-use KiwiSuite\Event\BootstrapItem\SubscriberBootstrapItem;
+use Ixocreate\Contract\Application\ConfiguratorRegistryInterface;
+use Ixocreate\Contract\Application\PackageInterface;
+use Ixocreate\Contract\Application\ServiceRegistryInterface;
+use Ixocreate\Contract\ServiceManager\ServiceManagerInterface;
+use Ixocreate\Event\BootstrapItem\SubscriberBootstrapItem;
 
 final class Package implements PackageInterface
 {

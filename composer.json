@@ -23,13 +23,13 @@
     },
     "autoload": {
         "psr-4": {
-            "KiwiSuite\\Event\\": "src/"
+            "Ixocreate\\Event\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "KiwiSuiteTest\\Event\\": "tests/src/",
-            "KiwiSuiteMisc\\Event\\": "tests/misc/"
+            "IxocreateTest\\Event\\": "tests/src/",
+            "IxocreateMisc\\Event\\": "tests/misc/"
         }
     }
 }

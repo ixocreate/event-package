@@ -1,5 +1,5 @@
 <?php
-namespace KiwiSuite\Event;
+namespace Ixocreate\Event;
 
 use Symfony\Component\EventDispatcher\ImmutableEventDispatcher;
 

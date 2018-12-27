@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace KiwiSuite\Event\Subscriber;
+namespace Ixocreate\Event\Subscriber;
 
-use KiwiSuite\ServiceManager\SubManager\SubManager;
+use Ixocreate\ServiceManager\SubManager\SubManager;
 
 final class SubscriberSubManager extends SubManager
 {

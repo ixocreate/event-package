@@ -1,7 +1,7 @@
 <?php
-namespace KiwiSuite\Event;
+namespace Ixocreate\Event;
 
-use KiwiSuite\Contract\Event\EventInterface;
+use Ixocreate\Contract\Event\EventInterface;
 
 class Event extends \Symfony\Component\EventDispatcher\Event implements EventInterface
 {

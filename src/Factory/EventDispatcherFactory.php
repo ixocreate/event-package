@@ -1,10 +1,10 @@
 <?php
-namespace KiwiSuite\Event\Factory;
+namespace Ixocreate\Event\Factory;
 
-use KiwiSuite\Contract\ServiceManager\FactoryInterface;
-use KiwiSuite\Contract\ServiceManager\ServiceManagerInterface;
-use KiwiSuite\Event\EventDispatcher;
-use KiwiSuite\Event\Subscriber\SubscriberSubManager;
+use Ixocreate\Contract\ServiceManager\FactoryInterface;
+use Ixocreate\Contract\ServiceManager\ServiceManagerInterface;
+use Ixocreate\Event\EventDispatcher;
+use Ixocreate\Event\Subscriber\SubscriberSubManager;
 
 final class EventDispatcherFactory implements FactoryInterface
 {
