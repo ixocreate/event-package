@@ -6,7 +6,6 @@
 [![Packagist Pre Release](https://img.shields.io/packagist/vpre/ixocreate/event.svg)](https://packagist.org/packages/ixocreate/event)
 [![Packagist](https://img.shields.io/packagist/l/ixocreate/event.svg)](https://packagist.org/packages/ixocreate/event)
 
-
 ## Installation
 
 Install the package via composer:
