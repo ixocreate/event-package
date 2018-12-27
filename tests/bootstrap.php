@@ -1,10 +1,7 @@
 <?php
 /**
- * kiwi-suite/event (https://github.com/kiwi-suite/event)
- *
- * @package kiwi-suite/event
- * @link https://github.com/kiwi-suite/event
- * @copyright Copyright (c) 2010 - 2018 kiwi suite GmbH
+ * @link https://github.com/ixocreate
+ * @copyright IXOCREATE GmbH
  * @license MIT License
  */
 

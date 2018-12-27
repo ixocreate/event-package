@@ -1,4 +1,12 @@
 <?php
+/**
+ * @link https://github.com/ixocreate
+ * @copyright IXOCREATE GmbH
+ * @license MIT License
+ */
+
+declare(strict_types=1);
+
 namespace Ixocreate\Event;
 
 use Ixocreate\Contract\Application\ConfiguratorRegistryInterface;
@@ -9,7 +17,6 @@ use Ixocreate\Event\BootstrapItem\SubscriberBootstrapItem;
 
 final class Package implements PackageInterface
 {
-
     /**
      * @param ConfiguratorRegistryInterface $configuratorRegistry
      */
@@ -30,7 +37,7 @@ final class Package implements PackageInterface
     public function getBootstrapItems(): ?array
     {
         return [
-            SubscriberBootstrapItem::class
+            SubscriberBootstrapItem::class,
         ];
     }
 

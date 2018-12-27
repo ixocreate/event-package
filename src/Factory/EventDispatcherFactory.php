@@ -1,4 +1,12 @@
 <?php
+/**
+ * @link https://github.com/ixocreate
+ * @copyright IXOCREATE GmbH
+ * @license MIT License
+ */
+
+declare(strict_types=1);
+
 namespace Ixocreate\Event\Factory;
 
 use Ixocreate\Contract\ServiceManager\FactoryInterface;
@@ -8,7 +16,6 @@ use Ixocreate\Event\Subscriber\SubscriberSubManager;
 
 final class EventDispatcherFactory implements FactoryInterface
 {
-
     /**
      * @param ServiceManagerInterface $container
      * @param $requestedName
@@ -25,7 +32,7 @@ final class EventDispatcherFactory implements FactoryInterface
             $eventNames = $service::register();
 
             foreach ($eventNames as $eventName) {
-                $eventDispatcher->addListener($eventName, function ($event) use ($service, $subscriberSubManager){
+                $eventDispatcher->addListener($eventName, function ($event) use ($service, $subscriberSubManager) {
                     $subscriberSubManager->get($service)->handle($event);
                 });
             }

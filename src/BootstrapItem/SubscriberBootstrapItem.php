@@ -1,4 +1,10 @@
 <?php
+/**
+ * @link https://github.com/ixocreate
+ * @copyright IXOCREATE GmbH
+ * @license MIT License
+ */
+
 declare(strict_types=1);
 
 namespace Ixocreate\Event\BootstrapItem;
@@ -6,7 +12,6 @@ namespace Ixocreate\Event\BootstrapItem;
 use Ixocreate\Contract\Application\BootstrapItemInterface;
 use Ixocreate\Contract\Application\ConfiguratorInterface;
 use Ixocreate\Event\Subscriber\SubscriberConfigurator;
-use Ixocreate\Resource\SubManager\ResourceConfigurator;
 
 final class SubscriberBootstrapItem implements BootstrapItemInterface
 {
