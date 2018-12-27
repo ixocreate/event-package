@@ -1,24 +1,22 @@
 {
-    "name": "kiwi-suite/event",
-    "description": "kiwi-suite/event",
+    "name": "ixocreate/event",
+    "description": "IXOCREATE event integration",
     "license": "MIT",
     "type": "library",
-    "authors": [
-        {
-            "name": "Thomas Payer"
-        }
-    ],
+    "authors": [{
+        "name": "IXOCREATE"
+    }],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
         "php": "^7.1",
-        "kiwi-suite/contract": "dev-develop",
+        "ixocreate/contract": "dev-develop",
         "symfony/event-dispatcher": "^4.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.0.6",
         "friendsofphp/php-cs-fixer": "^2.0",
-        "kiwi-suite/application": "dev-develop",
+        "ixocreate/application": "dev-develop",
         "php-coveralls/php-coveralls": "^2.0"
     },
     "autoload": {
