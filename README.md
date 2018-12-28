@@ -1,6 +1,6 @@
 # IXOCREATE event
 
-[![Build Status](https://travis-ci.org/ixocreate/event.svg?branch=master)](https://travis-ci.org/ixocreate/event)
+[![Build Status](https://travis-ci.com/ixocreate/event.svg?branch=master)](https://travis-ci.com/ixocreate/event)
 [![Coverage Status](https://coveralls.io/repos/github/ixocreate/event/badge.svg?branch=develop)](https://coveralls.io/github/ixocreate/event?branch=develop)
 [![Packagist](https://img.shields.io/packagist/v/ixocreate/event.svg)](https://packagist.org/packages/ixocreate/event)
 [![Packagist Pre Release](https://img.shields.io/packagist/vpre/ixocreate/event.svg)](https://packagist.org/packages/ixocreate/event)
