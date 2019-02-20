@@ -34,20 +34,20 @@ class PackageTest extends TestCase
     public function testPackage()
     {
         $configuratorRegistry = $this->getMockBuilder(ConfiguratorRegistryInterface::class)->getMock();
-        $configuratorRegistry->method('get')->willThrowException(new \InvalidArgumentException('make tests!'));
-        $configuratorRegistry->method('add')->willThrowException(new \InvalidArgumentException('make tests!'));
+        $configuratorRegistry->method('get')->willThrowException(new \InvalidArgumentException('Fail: Package::configure not empty!'));
+        $configuratorRegistry->method('add')->willThrowException(new \InvalidArgumentException('Fail: Package::configure not empty!'));
 
         $serviceRegistry = $this->getMockBuilder(ServiceRegistryInterface::class)->getMock();
-        $serviceRegistry->method('get')->willThrowException(new \InvalidArgumentException('make tests!'));
-        $serviceRegistry->method('add')->willThrowException(new \InvalidArgumentException('make tests!'));
+        $serviceRegistry->method('get')->willThrowException(new \InvalidArgumentException('Fail: Package::addService not empty!'));
+        $serviceRegistry->method('add')->willThrowException(new \InvalidArgumentException('Fail: Package::addService not empty!'));
 
         $serviceManager = $this->getMockBuilder(ServiceManagerInterface::class)->getMock();
-        $serviceManager->method('get')->willThrowException(new \InvalidArgumentException('make tests!'));
-        $serviceManager->method('build')->willThrowException(new \InvalidArgumentException('make tests!'));
-        $serviceManager->method('getServiceManagerConfig')->willThrowException(new \InvalidArgumentException('make tests!'));
-        $serviceManager->method('getServiceManagerSetup')->willThrowException(new \InvalidArgumentException('make tests!'));
-        $serviceManager->method('getFactoryResolver')->willThrowException(new \InvalidArgumentException('make tests!'));
-        $serviceManager->method('getServices')->willThrowException(new \InvalidArgumentException('make tests!'));
+        $serviceManager->method('get')->willThrowException(new \InvalidArgumentException('Fail: Package::boot not empty!'));
+        $serviceManager->method('build')->willThrowException(new \InvalidArgumentException('Fail: Package::boot not empty!'));
+        $serviceManager->method('getServiceManagerConfig')->willThrowException(new \InvalidArgumentException('Fail: Package::boot not empty!'));
+        $serviceManager->method('getServiceManagerSetup')->willThrowException(new \InvalidArgumentException('Fail: Package::boot not empty!'));
+        $serviceManager->method('getFactoryResolver')->willThrowException(new \InvalidArgumentException('Fail: Package::boot not empty!'));
+        $serviceManager->method('getServices')->willThrowException(new \InvalidArgumentException('Fail: Package::boot not empty!'));
 
         $test = new Package();
 
