@@ -30,15 +30,13 @@ class EventDispatcherFactoryTest extends TestCase
                 'event' => ['event2'], ],
         ];
 
-        $dispatcher = $this->createDispatcher($subscriber, $instnaces);
+        $dispatcher = $this->createDispatcher($subscriber, $instances);
 
         $dispatcher->dispatch('event1', new Event());
         $dispatcher->dispatch('event2', new Event());
 
-        $test = $dispatcher->getListeners();
-        \var_dump($test);
-//        $this->assertNotNull($subscriber2->getEvent());
-        $this->assertIsBool(true);
+        $this->assertNotNull($instances[0]->getEvent());
+        $this->assertNotNull($instances[1]->getEvent());
     }
 
     public function testEventDispatcherFactoryStopPropagation()
@@ -55,6 +53,7 @@ class EventDispatcherFactoryTest extends TestCase
         $dispatcher = $this->createDispatcher($subscriber, $instances);
 
         $dispatcher->dispatch('event1', new Event());
+
         $this->assertNotNull($instances[0]->getEvent());
         $this->assertNull($instances[1]->getEvent());
     }
