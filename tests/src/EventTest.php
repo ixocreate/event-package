@@ -17,8 +17,13 @@ class EventTest extends TestCase
     public function testEvent()
     {
         $event = new Event();
-        $event->isPropagationStopped();
-        $this->assertIsBool($event->isPropagationStopped());
+        $this->assertFalse($event->isPropagationStopped());
+    }
+
+    public function testEventStopPropagation()
+    {
+        $event = new Event();
         $event->stopPropagation();
+        $this->assertTrue($event->isPropagationStopped());
     }
 }

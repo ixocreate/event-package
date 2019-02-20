@@ -9,46 +9,117 @@ declare(strict_types=1);
 
 namespace IxocreateTest\Event\Factory;
 
-use Ixocreate\Contract\Event\SubscriberInterface;
+use Ixocreate\Contract\ServiceManager\ServiceManagerInterface;
+use Ixocreate\Contract\ServiceManager\SubManager\SubManagerInterface;
 use Ixocreate\Event\Event;
 use Ixocreate\Event\EventDispatcher;
 use Ixocreate\Event\Factory\EventDispatcherFactory;
 use Ixocreate\Event\Subscriber\SubscriberSubManager;
-use Ixocreate\ServiceManager\ServiceManager;
-use Ixocreate\ServiceManager\ServiceManagerConfig;
-use Ixocreate\ServiceManager\ServiceManagerConfigurator;
-use Ixocreate\ServiceManager\ServiceManagerSetup;
-use Ixocreate\ServiceManager\SubManager\SubManagerConfigurator;
-use IxocreateMisc\Event\TestSubscriber;
 use PHPUnit\Framework\TestCase;
 
 class EventDispatcherFactoryTest extends TestCase
 {
-    public function testEventDispatcherFactory()
+    public function testEventDispatcherFactoryMocked()
+    {
+        $subscriber = [
+             ['subtype' => 'Subscriber',
+                'name' => 'EventDispatcherSubscriber1',
+                'event' => ['event1'], ],
+             ['subtype' => 'Subscriber',
+                'name' => 'EventDispatcherSubscriber2',
+                'event' => ['event2'], ],
+        ];
+
+        $dispatcher = $this->createDispatcher($subscriber, $instnaces);
+
+        $dispatcher->dispatch('event1', new Event());
+        $dispatcher->dispatch('event2', new Event());
+
+        $test = $dispatcher->getListeners();
+        \var_dump($test);
+//        $this->assertNotNull($subscriber2->getEvent());
+        $this->assertIsBool(true);
+    }
+
+    public function testEventDispatcherFactoryStopPropagation()
+    {
+        $subscriber = [
+             ['subtype' => 'StopPropagationSubscriber',
+                'name' => 'EventDispatcherSubscriberStop1',
+                'event' => ['event1'], ],
+             ['subtype' => 'Subscriber',
+                'name' => 'EventDispatcherSubscriberStop2',
+                'event' => ['event1'], ],
+        ];
+
+        $dispatcher = $this->createDispatcher($subscriber, $instances);
+
+        $dispatcher->dispatch('event1', new Event());
+        $this->assertNotNull($instances[0]->getEvent());
+        $this->assertNull($instances[1]->getEvent());
+    }
+
+    private function createDispatcher($subscriber, &$instances)
     {
         $factory = new EventDispatcherFactory();
-        $configurator = new SubManagerConfigurator(SubscriberSubManager::class, SubscriberInterface::class);
-        $configurator->addService(TestSubscriber::class);
 
-        $subscriberServiceManagerConfig = new ServiceManagerConfig($configurator);
-        $services = [];
-        $services[SubscriberSubManager::class . '::Config'] = $subscriberServiceManagerConfig;
+        $container = $this->getMockBuilder(ServiceManagerInterface::class)
+            ->getMock();
+
+        $classNames = [];
+        $instances = [];
+        $returnMap = [];
+        foreach ($subscriber as $sub) {
+            $className = $this->generateSubscriber($sub['subtype'], $sub['name'], $sub['event']);
+            $classNames[] = $className;
+            $subscriber = new $className();
+            $instances[] = $subscriber;
+            $returnMap[] = [$className, $subscriber];
+        }
+
+        $container->method("get")
+            ->willReturnCallback(function ($requestedName) use ($classNames, $returnMap) {
+                switch ($requestedName) {
+                    case SubscriberSubManager::class:
+                        $mock = $this->getMockBuilder(SubManagerInterface::class)->getMock();
+                        $mock->method('getServices')->willReturn($classNames);
+                        $mock->method('get')->willReturnMap($returnMap);
+                        return $mock;
+                }
+            });
 
 
-        $configurator = new ServiceManagerConfigurator();
-        $configurator->addSubManager(SubscriberSubManager::class);
-        $config = new ServiceManagerConfig($configurator);
+        /** @var EventDispatcher $dispatcher */
+        return $factory($container, EventDispatcher::class, []);
+    }
 
-        $setup = new ServiceManagerSetup();
-        $container = new ServiceManager($config, $setup, $services);
+    private function generateSubscriber($subscriberType, $className, array $eventNames)
+    {
+        $template = <<<'EOF'
+<?php
+declare(strict_types=1);
 
-        /** @var EventDispatcher $dispachter */
-        $dispachter = $factory($container, EventDispatcher::class, []);
+namespace IxocreateMisc\Event;
 
-        $dispachter->getListeners();
+use Ixocreate\Contract\Event\EventInterface;
+use Ixocreate\Contract\Event\SubscriberInterface;
 
-        $dispachter->dispatch('event1', new Event());
+class <CLASSNAME> extends \IxocreateMisc\Event\<SUBSCRIBERTYPE>
+{
+    public static function register(): array
+    {
+        return <EVENTNAMES>;
+    }
+}
+EOF;
 
-        $this->assertIsBool(true);
+        $classCode = \str_replace(['<SUBSCRIBERTYPE>','<CLASSNAME>', '<EVENTNAMES>'], [$subscriberType, $className, \var_export($eventNames, true)], $template);
+
+        $tmpFilename = \tempnam(\sys_get_temp_dir(), 'subscriber_');
+        \file_put_contents($tmpFilename, $classCode);
+        require $tmpFilename;
+        \unlink($tmpFilename);
+
+        return 'IxocreateMisc\Event\\' . $className;
     }
 }

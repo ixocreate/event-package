@@ -30,7 +30,6 @@ final class EventDispatcherFactory implements FactoryInterface
         $subscriberSubManager = $container->get(SubscriberSubManager::class);
         foreach ($subscriberSubManager->getServices() as $service) {
             $eventNames = $service::register();
-
             foreach ($eventNames as $eventName) {
                 $eventDispatcher->addListener($eventName, function ($event) use ($service, $subscriberSubManager) {
                     $subscriberSubManager->get($service)->handle($event);

@@ -33,20 +33,32 @@ class PackageTest extends TestCase
      */
     public function testPackage()
     {
-        $ConfiguratorRegistry = $this->getMockBuilder(ConfiguratorRegistryInterface::class)->getMock();
-        $ServiceRegistry = $this->getMockBuilder(ServiceRegistryInterface::class)->getMock();
-        $ServiceManager = $this->getMockBuilder(ServiceManagerInterface::class)->getMock();
+        $configuratorRegistry = $this->getMockBuilder(ConfiguratorRegistryInterface::class)->getMock();
+        $configuratorRegistry->method('get')->willThrowException(new \InvalidArgumentException('make tests!'));
+        $configuratorRegistry->method('add')->willThrowException(new \InvalidArgumentException('make tests!'));
+
+        $serviceRegistry = $this->getMockBuilder(ServiceRegistryInterface::class)->getMock();
+        $serviceRegistry->method('get')->willThrowException(new \InvalidArgumentException('make tests!'));
+        $serviceRegistry->method('add')->willThrowException(new \InvalidArgumentException('make tests!'));
+
+        $serviceManager = $this->getMockBuilder(ServiceManagerInterface::class)->getMock();
+        $serviceManager->method('get')->willThrowException(new \InvalidArgumentException('make tests!'));
+        $serviceManager->method('build')->willThrowException(new \InvalidArgumentException('make tests!'));
+        $serviceManager->method('getServiceManagerConfig')->willThrowException(new \InvalidArgumentException('make tests!'));
+        $serviceManager->method('getServiceManagerSetup')->willThrowException(new \InvalidArgumentException('make tests!'));
+        $serviceManager->method('getFactoryResolver')->willThrowException(new \InvalidArgumentException('make tests!'));
+        $serviceManager->method('getServices')->willThrowException(new \InvalidArgumentException('make tests!'));
 
         $test = new Package();
 
-        $test->configure($ConfiguratorRegistry);
-        $test->addServices($ServiceRegistry);
-        $test->boot($ServiceManager);
+        $test->configure($configuratorRegistry);
+        $test->addServices($serviceRegistry);
+        $test->boot($serviceManager);
 
         $this->assertSame([SubscriberBootstrapItem::class], $this->package->getBootstrapItems());
         $this->assertNull($this->package->getConfigProvider());
         $this->assertSame(
-            '/Users/jjost/develop/ixocreate/event/src/../bootstrap/',
+            \dirname(\dirname(__DIR__)) . '/src/../bootstrap/',
             $this->package->getBootstrapDirectory()
         );
         $this->assertNull($this->package->getConfigDirectory());

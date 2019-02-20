@@ -15,21 +15,30 @@ declare(strict_types=1);
 
 namespace IxocreateMisc\Event;
 
-use Ixocreate\Contract\Event\EventInterface;
-use Ixocreate\Contract\Event\SubscriberInterface;
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
-class TestSubscriber implements SubscriberInterface
+class TestSubscriber implements EventSubscriberInterface
 {
-    public static function register(): array
+    /**
+     * Returns an array of event names this subscriber wants to listen to.
+     *
+     * The array keys are event names and the value can be:
+     *
+     *  * The method name to call (priority defaults to 0)
+     *  * An array composed of the method name to call and the priority
+     *  * An array of arrays composed of the method names to call and respective
+     *    priorities, or 0 if unset
+     *
+     * For instance:
+     *
+     *  * ['eventName' => 'methodName']
+     *  * ['eventName' => ['methodName', $priority]]
+     *  * ['eventName' => [['methodName1', $priority], ['methodName2']]]
+     *
+     * @return array The event names to listen to
+     */
+    public static function getSubscribedEvents()
     {
-        return [
-            'event1',
-            'event2',
-        ];
-    }
-
-    public function handle(EventInterface $event)
-    {
-        echo 'ich wurde aufgerufen';
+        echo 'Test';
     }
 }

@@ -30,8 +30,6 @@ class SubscriberConfiguratorTest extends TestCase
         $this->assertInstanceOf(SubManagerConfigurator::class, $subscriberConfig->getManagerConfigurator());
 
         $subscriberConfig->addDirectory('/Users/jjost/develop/ixocreate/event/src/../bootstrap/Test.php', false);
-        //$this->assertSame('Hallo', $subscriberConfig->)
-        $a = $subscriberConfig->getManagerConfigurator();
 
         $subscriberConfig->addSubscriber('');
 
