@@ -39,8 +39,8 @@ class SubscriberConfiguratorTest extends TestCase
         $subConfig->getDirectories();
         $subConfig->getFactories();
 
-        $this->assertContains($directory,$subConfig->getDirectories()[0]);
-        $this->assertArrayHasKey($subscriber,$subConfig->getFactories());
+        $this->assertContains($directory, $subConfig->getDirectories()[0]);
+        $this->assertArrayHasKey($subscriber, $subConfig->getFactories());
 
         $subscriberConfig->registerService($serviceRegistry);
     }
