@@ -28,18 +28,26 @@ class SubscriberConfiguratorTest extends TestCase
 
         $this->assertInstanceOf(SubManagerConfigurator::class, $subscriberConfig->getManagerConfigurator());
 
-        $directory = '/../bootstrap/';
+        $directory = __DIR__ . '/../bootstrap/';
         $subscriber = 'Test.php';
 
         $subscriberConfig->addDirectory($directory, false);
         $subscriberConfig->addSubscriber($subscriber);
 
-        $subConfig =  $subscriberConfig->getManagerConfigurator();
+        $subConfig = $subscriberConfig->getManagerConfigurator();
 
         $subConfig->getDirectories();
         $subConfig->getFactories();
 
-        $this->assertContains($directory, $subConfig->getDirectories()[0]);
+        $this->assertSame([
+            [
+                'dir' => $directory,
+                'recursive' => false,
+                'only' => [
+                    0 => 'Ixocreate\Contract\Event\SubscriberInterface'
+                ]
+            ]
+        ], $subConfig->getDirectories());
         $this->assertArrayHasKey($subscriber, $subConfig->getFactories());
 
         $subscriberConfig->registerService($serviceRegistry);
