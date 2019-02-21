@@ -44,9 +44,9 @@ class SubscriberConfiguratorTest extends TestCase
                 'dir' => $directory,
                 'recursive' => false,
                 'only' => [
-                    0 => 'Ixocreate\Contract\Event\SubscriberInterface'
-                ]
-            ]
+                    0 => 'Ixocreate\Contract\Event\SubscriberInterface',
+                ],
+            ],
         ], $subConfig->getDirectories());
         $this->assertArrayHasKey($subscriber, $subConfig->getFactories());
 
