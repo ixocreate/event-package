@@ -24,8 +24,8 @@ final class EventDispatcherFactory implements FactoryInterface
      * @param ServiceManagerInterface $container
      * @param $requestedName
      * @param array|null $options
-     * @return mixed
      * @throws \Exception
+     * @return mixed
      */
     public function __invoke(ServiceManagerInterface $container, $requestedName, array $options = null)
     {
@@ -37,7 +37,7 @@ final class EventDispatcherFactory implements FactoryInterface
         foreach ($subscriberSubManager->getServices() as $service) {
             $events = $service::register();
             foreach ($events as $currentEvent) {
-                if (is_string($currentEvent)) {
+                if (\is_string($currentEvent)) {
                     $currentEvent = new Register($currentEvent);
                 }
 

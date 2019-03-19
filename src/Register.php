@@ -17,6 +17,7 @@ final class Register implements RegisterInterface
      * @var string
      */
     private $name;
+
     /**
      * @var int
      */
@@ -29,7 +30,6 @@ final class Register implements RegisterInterface
      */
     public function __construct(string $name, int $priority = 0)
     {
-
         $this->name = $name;
         $this->priority = $priority;
     }
