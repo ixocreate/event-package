@@ -16,12 +16,11 @@ use Ixocreate\Event\EventDispatcher;
 use Ixocreate\Event\Factory\EventDispatcherFactory;
 use Ixocreate\Event\Subscriber\SubscriberSubManager;
 use IxocreateMisc\Event\Subscriber;
-use IxocreateMisc\Event\TestSubscriber;
 use PHPUnit\Framework\TestCase;
 
 class EventDispatcherTest extends TestCase
 {
-    private function Start()
+    private function getDispatcher(): EventDispatcher
     {
         $factory = new EventDispatcherFactory();
 
@@ -43,7 +42,6 @@ class EventDispatcherTest extends TestCase
                         return $mock;
                 }
             });
-        /** @var EventDispatcher $dispatcher */
         return $factory($container, EventDispatcher::class, []);
     }
 
@@ -52,61 +50,14 @@ class EventDispatcherTest extends TestCase
      */
     public function testEventDispatcherDispatch()
     {
-        /** @var EventDispatcher $dispachter */
-        $dispatcher = $this->Start();
+        $dispatcher = $this->getDispatcher();
         $dispatcher->dispatch('event1', new Event());
         $this->assertIsBool(true);
     }
 
-    /**
-     * @covers \Ixocreate\Event\EventDispatcher::addListener
-     */
-    public function testEventDispatcherAddListener()
-    {
-        /** @var EventDispatcher $dispachter */
-        $dispatcher = $this->Start();
-        $this->expectException(\BadMethodCallException::class);
-        $dispatcher->addListener('event1', 'Test');
-    }
-
-    /**
-     * @covers \Ixocreate\Event\EventDispatcher::removeListener
-     */
-    public function testEventDispatcherRemoveListener()
-    {
-        /** @var EventDispatcher $dispachter */
-        $dispatcher = $this->Start();
-        $this->expectException(\BadMethodCallException::class);
-        $dispatcher->removeListener('event1', 'Test');
-    }
-
-    /**
-     * @covers \Ixocreate\Event\EventDispatcher::addSubscriber
-     */
-    public function testEventDispatcherAddSubscriber()
-    {
-        $subscriber = new TestSubscriber();
-        /** @var EventDispatcher $dispachter */
-        $dispatcher = $this->Start();
-        $this->expectException(\BadMethodCallException::class);
-        $dispatcher->addSubscriber($subscriber);
-    }
-
-    /**
-     * @covers \Ixocreate\Event\EventDispatcher::removeSubscriber
-     */
-    public function testEventDispatcherRemoveSubscriber()
-    {
-        $subscriber = new TestSubscriber();
-        /** @var EventDispatcher $dispachter */
-        $dispatcher = $this->Start();
-        $this->expectException(\BadMethodCallException::class);
-        $dispatcher->removeSubscriber($subscriber);
-    }
-
     public function testEventDispatcherGethas()
     {
-        $dispatcher = $this->Start();
+        $dispatcher = $this->getDispatcher();
 
         $listener = $dispatcher->getListeners('event1');
         $this->assertNotNull($listener);

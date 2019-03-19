@@ -9,78 +9,59 @@ declare(strict_types=1);
 
 namespace Ixocreate\Event;
 
+use Ixocreate\Contract\Event\EventInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 final class EventDispatcher
 {
+    /**
+     * @var EventDispatcherInterface
+     */
     private $dispatcher;
 
+    /**
+     * EventDispatcher constructor.
+     * @param EventDispatcherInterface $dispatcher
+     */
     public function __construct(EventDispatcherInterface $dispatcher)
     {
         $this->dispatcher = $dispatcher;
     }
 
     /**
-     *
+     * @param string $eventName
+     * @param EventInterface $event
+     * @return \Symfony\Component\EventDispatcher\Event
      */
-    public function dispatch($eventName, Event $event = null)
+    public function dispatch(string $eventName, EventInterface $event)
     {
-        return $this->dispatcher->dispatch($eventName, $event);
+        return $this->dispatcher->dispatch($eventName, new EventWrapper($event));
     }
 
     /**
-     *
+     * @param string|null $eventName
+     * @return array
      */
-    public function addListener($eventName, $listener, $priority = 0)
-    {
-        throw new \BadMethodCallException('Unmodifiable event dispatchers must not be modified.');
-    }
-
-    /**
-     *
-     */
-    public function addSubscriber(EventSubscriberInterface $subscriber)
-    {
-        throw new \BadMethodCallException('Unmodifiable event dispatchers must not be modified.');
-    }
-
-    /**
-     *
-     */
-    public function removeListener($eventName, $listener)
-    {
-        throw new \BadMethodCallException('Unmodifiable event dispatchers must not be modified.');
-    }
-
-    /**
-     *
-     */
-    public function removeSubscriber(EventSubscriberInterface $subscriber)
-    {
-        throw new \BadMethodCallException('Unmodifiable event dispatchers must not be modified.');
-    }
-
-    /**
-     *
-     */
-    public function getListeners($eventName = null)
+    public function getListeners(string $eventName = null): array
     {
         return $this->dispatcher->getListeners($eventName);
     }
 
     /**
-     *
+     * @param string $eventName
+     * @param $listener
+     * @return int|null
      */
-    public function getListenerPriority($eventName, $listener)
+    public function getListenerPriority(string $eventName, $listener): ?int
     {
         return $this->dispatcher->getListenerPriority($eventName, $listener);
     }
 
     /**
-     *
+     * @param string|null $eventName
+     * @return bool
      */
-    public function hasListeners($eventName = null)
+    public function hasListeners(string $eventName = null): bool
     {
         return $this->dispatcher->hasListeners($eventName);
     }

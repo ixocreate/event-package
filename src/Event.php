@@ -13,12 +13,14 @@ use Ixocreate\Contract\Event\EventInterface;
 
 class Event extends \Symfony\Component\EventDispatcher\Event implements EventInterface
 {
+    private $propagationStopped = false;
+
     /**
      * @return bool
      */
     public function isPropagationStopped(): bool
     {
-        return parent::isPropagationStopped();
+        return $this->propagationStopped;
     }
 
     /**
@@ -26,6 +28,6 @@ class Event extends \Symfony\Component\EventDispatcher\Event implements EventInt
      */
     public function stopPropagation(): void
     {
-        parent::stopPropagation();
+        $this->propagationStopped = true;
     }
 }

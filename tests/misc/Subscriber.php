@@ -38,7 +38,7 @@ class Subscriber implements SubscriberInterface
         return self::$events;
     }
 
-    public function handle(EventInterface $event)
+    public function handle(EventInterface $event, string $eventName)
     {
         $this->event = $event;
         $this->handleCount = self::$handleCounter++;

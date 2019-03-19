@@ -9,9 +9,13 @@ declare(strict_types=1);
 
 namespace Ixocreate\Event\Factory;
 
+use Ixocreate\Contract\Event\RegisterInterface;
+use Ixocreate\Contract\Event\SubscriberInterface;
 use Ixocreate\Contract\ServiceManager\FactoryInterface;
 use Ixocreate\Contract\ServiceManager\ServiceManagerInterface;
 use Ixocreate\Event\EventDispatcher;
+use Ixocreate\Event\EventWrapper;
+use Ixocreate\Event\Register;
 use Ixocreate\Event\Subscriber\SubscriberSubManager;
 
 final class EventDispatcherFactory implements FactoryInterface
@@ -21,6 +25,7 @@ final class EventDispatcherFactory implements FactoryInterface
      * @param $requestedName
      * @param array|null $options
      * @return mixed
+     * @throws \Exception
      */
     public function __invoke(ServiceManagerInterface $container, $requestedName, array $options = null)
     {
@@ -28,12 +33,21 @@ final class EventDispatcherFactory implements FactoryInterface
 
         /** @var SubscriberSubManager $subscriberSubManager */
         $subscriberSubManager = $container->get(SubscriberSubManager::class);
+        /** @var SubscriberInterface $service */
         foreach ($subscriberSubManager->getServices() as $service) {
-            $eventNames = $service::register();
-            foreach ($eventNames as $eventName) {
-                $eventDispatcher->addListener($eventName, function ($event) use ($service, $subscriberSubManager) {
-                    $subscriberSubManager->get($service)->handle($event);
-                });
+            $events = $service::register();
+            foreach ($events as $currentEvent) {
+                if (is_string($currentEvent)) {
+                    $currentEvent = new Register($currentEvent);
+                }
+
+                if (!($currentEvent instanceof RegisterInterface)) {
+                    throw new \Exception("Invalid value for event registration");
+                }
+                $eventDispatcher->addListener($currentEvent->name(), function (EventWrapper $event, string $eventName) use ($service, $subscriberSubManager) {
+                    $innerEvent = $event->event();
+                    $subscriberSubManager->get($service)->handle($innerEvent, $eventName);
+                }, $currentEvent->priority());
             }
         }
 

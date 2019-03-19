@@ -19,9 +19,9 @@ use Ixocreate\Contract\Event\EventInterface;
 
 class StopPropagationSubscriber extends Subscriber
 {
-    public function handle(EventInterface $event)
+    public function handle(EventInterface $event, string $eventName)
     {
-        parent::handle($event);
+        parent::handle($event, $eventName);
         $event->stopPropagation();
     }
 }
