@@ -1,5 +1,5 @@
 {
-    "name": "ixocreate/event",
+    "name": "ixocreate/event-package",
     "description": "IXOCREATE event integration",
     "license": "MIT",
     "type": "library",
