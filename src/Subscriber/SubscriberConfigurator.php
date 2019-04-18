@@ -7,11 +7,11 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Event\Subscriber;
+namespace Ixocreate\Package\Event\Subscriber;
 
-use Ixocreate\Contract\Application\ConfiguratorInterface;
-use Ixocreate\Contract\Application\ServiceRegistryInterface;
-use Ixocreate\Contract\Event\SubscriberInterface;
+use Ixocreate\Application\ConfiguratorInterface;
+use Ixocreate\Application\ServiceRegistryInterface;
+use Ixocreate\Package\Event\SubscriberInterface;
 use Ixocreate\ServiceManager\Factory\AutowireFactory;
 use Ixocreate\ServiceManager\SubManager\SubManagerConfigurator;
 

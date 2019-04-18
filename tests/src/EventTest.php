@@ -7,9 +7,9 @@
 
 declare(strict_types=1);
 
-namespace IxocreateTest\Event;
+namespace Ixocreate\Test\Event;
 
-use Ixocreate\Event\Event;
+use Ixocreate\Package\Event\Event;
 use PHPUnit\Framework\TestCase;
 
 class EventTest extends TestCase

@@ -7,14 +7,14 @@
 
 declare(strict_types=1);
 
-namespace IxocreateTest\Event\Factory;
+namespace Ixocreate\Test\Event\Factory;
 
-use Ixocreate\Contract\ServiceManager\ServiceManagerInterface;
-use Ixocreate\Contract\ServiceManager\SubManager\SubManagerInterface;
-use Ixocreate\Event\Event;
-use Ixocreate\Event\EventDispatcher;
-use Ixocreate\Event\Factory\EventDispatcherFactory;
-use Ixocreate\Event\Subscriber\SubscriberSubManager;
+use Ixocreate\ServiceManager\ServiceManagerInterface;
+use Ixocreate\ServiceManager\SubManager\SubManagerInterface;
+use Ixocreate\Package\Event\Event;
+use Ixocreate\Package\Event\EventDispatcher;
+use Ixocreate\Package\Event\Factory\EventDispatcherFactory;
+use Ixocreate\Package\Event\Subscriber\SubscriberSubManager;
 use PHPUnit\Framework\TestCase;
 
 class EventDispatcherFactoryTest extends TestCase
@@ -98,12 +98,12 @@ class EventDispatcherFactoryTest extends TestCase
 <?php
 declare(strict_types=1);
 
-namespace IxocreateMisc\Event;
+namespace Ixocreate\Misc\Event;
 
-use Ixocreate\Contract\Event\EventInterface;
-use Ixocreate\Contract\Event\SubscriberInterface;
+use Ixocreate\Package\Event\EventInterface;
+use Ixocreate\Package\Event\SubscriberInterface;
 
-class <CLASSNAME> extends \IxocreateMisc\Event\<SUBSCRIBERTYPE>
+class <CLASSNAME> extends \Ixocreate\Misc\Event\<SUBSCRIBERTYPE>
 {
     public static function register(): array
     {
@@ -119,6 +119,6 @@ EOF;
         require $tmpFilename;
         \unlink($tmpFilename);
 
-        return 'IxocreateMisc\Event\\' . $className;
+        return 'Ixocreate\\Misc\Event\\' . $className;
     }
 }

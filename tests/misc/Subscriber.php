@@ -13,10 +13,10 @@ declare(strict_types=1);
  * Time: 12:26
  */
 
-namespace IxocreateMisc\Event;
+namespace Ixocreate\Misc\Event;
 
-use Ixocreate\Contract\Event\EventInterface;
-use Ixocreate\Contract\Event\SubscriberInterface;
+use Ixocreate\Package\Event\EventInterface;
+use Ixocreate\Package\Event\SubscriberInterface;
 
 class Subscriber implements SubscriberInterface
 {

@@ -13,9 +13,9 @@ declare(strict_types=1);
  * Time: 12:26
  */
 
-namespace IxocreateMisc\Event;
+namespace Ixocreate\Misc\Event;
 
-use Ixocreate\Contract\Event\EventInterface;
+use Ixocreate\Package\Event\EventInterface;
 
 class StopPropagationSubscriber extends Subscriber
 {

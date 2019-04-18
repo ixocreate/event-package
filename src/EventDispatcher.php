@@ -7,9 +7,9 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Event;
+namespace Ixocreate\Package\Event;
 
-use Ixocreate\Contract\Event\EventInterface;
+use Ixocreate\Package\Event\EventInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 final class EventDispatcher

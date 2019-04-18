@@ -7,13 +7,13 @@
 
 declare(strict_types=1);
 
-namespace IxocreateTest\Event;
+namespace Ixocreate\Test\Event;
 
-use Ixocreate\Contract\Application\ConfiguratorRegistryInterface;
-use Ixocreate\Contract\Application\ServiceRegistryInterface;
-use Ixocreate\Contract\ServiceManager\ServiceManagerInterface;
-use Ixocreate\Event\BootstrapItem\SubscriberBootstrapItem;
-use Ixocreate\Event\Package;
+use Ixocreate\Application\ConfiguratorRegistryInterface;
+use Ixocreate\Application\ServiceRegistryInterface;
+use Ixocreate\ServiceManager\ServiceManagerInterface;
+use Ixocreate\Package\Event\BootstrapItem\SubscriberBootstrapItem;
+use Ixocreate\Package\Event\Package;
 use PHPUnit\Framework\TestCase;
 
 class PackageTest extends TestCase
@@ -29,7 +29,7 @@ class PackageTest extends TestCase
     }
 
     /**
-     * @covers \Ixocreate\Event\Package
+     * @covers \Ixocreate\Package\Event\Package
      */
     public function testPackage()
     {

@@ -7,11 +7,11 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Event\BootstrapItem;
+namespace Ixocreate\Package\Event\BootstrapItem;
 
-use Ixocreate\Contract\Application\BootstrapItemInterface;
-use Ixocreate\Contract\Application\ConfiguratorInterface;
-use Ixocreate\Event\Subscriber\SubscriberConfigurator;
+use Ixocreate\Application\BootstrapItemInterface;
+use Ixocreate\Application\ConfiguratorInterface;
+use Ixocreate\Package\Event\Subscriber\SubscriberConfigurator;
 
 final class SubscriberBootstrapItem implements BootstrapItemInterface
 {

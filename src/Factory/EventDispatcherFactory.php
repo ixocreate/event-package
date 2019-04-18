@@ -7,16 +7,16 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Event\Factory;
+namespace Ixocreate\Package\Event\Factory;
 
-use Ixocreate\Contract\Event\RegisterInterface;
-use Ixocreate\Contract\Event\SubscriberInterface;
-use Ixocreate\Contract\ServiceManager\FactoryInterface;
-use Ixocreate\Contract\ServiceManager\ServiceManagerInterface;
-use Ixocreate\Event\EventDispatcher;
-use Ixocreate\Event\EventWrapper;
-use Ixocreate\Event\Register;
-use Ixocreate\Event\Subscriber\SubscriberSubManager;
+use Ixocreate\Package\Event\RegisterInterface;
+use Ixocreate\Package\Event\SubscriberInterface;
+use Ixocreate\ServiceManager\FactoryInterface;
+use Ixocreate\ServiceManager\ServiceManagerInterface;
+use Ixocreate\Package\Event\EventDispatcher;
+use Ixocreate\Package\Event\EventWrapper;
+use Ixocreate\Package\Event\Register;
+use Ixocreate\Package\Event\Subscriber\SubscriberSubManager;
 
 final class EventDispatcherFactory implements FactoryInterface
 {

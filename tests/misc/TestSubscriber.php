@@ -13,7 +13,7 @@ declare(strict_types=1);
  * Time: 12:26
  */
 
-namespace IxocreateMisc\Event;
+namespace Ixocreate\Misc\Event;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
