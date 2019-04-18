@@ -15,7 +15,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Misc\Event;
 
-use Ixocreate\Package\Event\EventInterface;
+use Ixocreate\Event\Package\EventInterface;
 
 class StopPropagationSubscriber extends Subscriber
 {

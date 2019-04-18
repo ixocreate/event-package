@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace Ixocreate\Test\Event\BootstrapItem;
 
 use Ixocreate\Application\ConfiguratorInterface;
-use Ixocreate\Package\Event\BootstrapItem\SubscriberBootstrapItem;
+use Ixocreate\Event\Package\Bootstrap\SubscriberBootstrapItem;
 use PHPUnit\Framework\TestCase;
 
 class SubscriberBootstrapItemTest extends TestCase
@@ -23,7 +23,7 @@ class SubscriberBootstrapItemTest extends TestCase
     }
 
     /**
-     * @covers \Ixocreate\Package\Event\BootstrapItem\SubscriberBootstrapItem
+     * @covers \Ixocreate\Event\Package\Bootstrap\SubscriberBootstrapItem
      */
     public function testSubscriber()
     {

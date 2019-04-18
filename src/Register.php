@@ -7,9 +7,9 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Package\Event;
+namespace Ixocreate\Event\Package;
 
-use Ixocreate\Package\Event\RegisterInterface;
+use Ixocreate\Event\Package\RegisterInterface;
 
 final class Register implements RegisterInterface
 {

@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace Ixocreate\Test\Event\Subscriber;
 
 use Ixocreate\Application\ServiceRegistryInterface;
-use Ixocreate\Package\Event\Subscriber\SubscriberConfigurator;
+use Ixocreate\Event\Package\Subscriber\SubscriberConfigurator;
 use Ixocreate\ServiceManager\SubManager\SubManagerConfigurator;
 use PHPUnit\Framework\TestCase;
 
@@ -44,7 +44,7 @@ class SubscriberConfiguratorTest extends TestCase
                 'dir' => $directory,
                 'recursive' => false,
                 'only' => [
-                    0 => 'Ixocreate\Package\Event\SubscriberInterface',
+                    0 => 'Ixocreate\Event\Package\SubscriberInterface',
                 ],
             ],
         ], $subConfig->getDirectories());
