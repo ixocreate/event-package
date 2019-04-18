@@ -20,6 +20,7 @@ final class EventDispatcher
 
     /**
      * EventDispatcher constructor.
+     *
      * @param EventDispatcherInterface $dispatcher
      */
     public function __construct(EventDispatcherInterface $dispatcher)

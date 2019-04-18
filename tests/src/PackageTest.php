@@ -9,11 +9,11 @@ declare(strict_types=1);
 
 namespace Ixocreate\Test\Event;
 
-use Ixocreate\Application\Service\Configurator\ConfiguratorRegistryInterface;
-use Ixocreate\Application\Service\Registry\ServiceRegistryInterface;
+use Ixocreate\Application\ConfiguratorRegistryInterface;
+use Ixocreate\Application\Service\ServiceRegistryInterface;
+use Ixocreate\Event\Package;
+use Ixocreate\Event\SubscriberBootstrapItem;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
-use Ixocreate\Event\Bootstrap\SubscriberBootstrapItem;
-use Ixocreate\Event;
 use PHPUnit\Framework\TestCase;
 
 class PackageTest extends TestCase

@@ -18,6 +18,7 @@ final class EventWrapper extends \Symfony\Component\EventDispatcher\Event
 
     /**
      * EventWrapper constructor.
+     *
      * @param EventInterface $event
      */
     public function __construct(EventInterface $event)

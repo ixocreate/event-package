@@ -23,6 +23,7 @@ final class Register implements RegisterInterface
 
     /**
      * Register constructor.
+     *
      * @param string $name
      * @param int $priority
      */

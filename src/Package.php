@@ -9,11 +9,11 @@ declare(strict_types=1);
 
 namespace Ixocreate\Event;
 
-use Ixocreate\Application\Service\Configurator\ConfiguratorRegistryInterface;
+use Ixocreate\Application\ConfiguratorRegistryInterface;
 use Ixocreate\Application\PackageInterface;
-use Ixocreate\Application\Service\Registry\ServiceRegistryInterface;
+use Ixocreate\Application\Service\ServiceRegistryInterface;
+use Ixocreate\Event\Subscriber\SubscriberBootstrapItem;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
-use Ixocreate\Event\Bootstrap\SubscriberBootstrapItem;
 
 final class Package implements PackageInterface
 {
