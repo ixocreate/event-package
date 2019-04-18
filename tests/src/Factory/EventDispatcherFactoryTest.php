@@ -11,10 +11,10 @@ namespace Ixocreate\Test\Event\Factory;
 
 use Ixocreate\ServiceManager\ServiceManagerInterface;
 use Ixocreate\ServiceManager\SubManager\SubManagerInterface;
-use Ixocreate\Event\Package\Event;
-use Ixocreate\Event\Package\EventDispatcher;
-use Ixocreate\Event\Package\Factory\EventDispatcherFactory;
-use Ixocreate\Event\Package\Subscriber\SubscriberSubManager;
+use Ixocreate\Event\Event;
+use Ixocreate\Event\EventDispatcher;
+use Ixocreate\Event\Factory\EventDispatcherFactory;
+use Ixocreate\Event\Subscriber\SubscriberSubManager;
 use PHPUnit\Framework\TestCase;
 
 class EventDispatcherFactoryTest extends TestCase
@@ -100,8 +100,8 @@ declare(strict_types=1);
 
 namespace Ixocreate\Misc\Event;
 
-use Ixocreate\Event\Package\EventInterface;
-use Ixocreate\Event\Package\SubscriberInterface;
+use Ixocreate\Event\EventInterface;
+use Ixocreate\Event\SubscriberInterface;
 
 class <CLASSNAME> extends \Ixocreate\Misc\Event\<SUBSCRIBERTYPE>
 {

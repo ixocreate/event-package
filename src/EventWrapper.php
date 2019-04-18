@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Event\Package;
+namespace Ixocreate\Event;
 
 final class EventWrapper extends \Symfony\Component\EventDispatcher\Event
 {

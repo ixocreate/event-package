@@ -12,8 +12,8 @@ namespace Ixocreate\Test\Event;
 use Ixocreate\Application\Service\Configurator\ConfiguratorRegistryInterface;
 use Ixocreate\Application\Service\Registry\ServiceRegistryInterface;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
-use Ixocreate\Event\Package\Bootstrap\SubscriberBootstrapItem;
-use Ixocreate\Event\Package\Package;
+use Ixocreate\Event\Bootstrap\SubscriberBootstrapItem;
+use Ixocreate\Event;
 use PHPUnit\Framework\TestCase;
 
 class PackageTest extends TestCase
@@ -29,7 +29,7 @@ class PackageTest extends TestCase
     }
 
     /**
-     * @covers \Ixocreate\Event\Package\Package
+     * @covers \Ixocreate\Event\Package
      */
     public function testPackage()
     {

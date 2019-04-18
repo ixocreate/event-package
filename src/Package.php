@@ -7,13 +7,13 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Event\Package;
+namespace Ixocreate\Event;
 
 use Ixocreate\Application\Service\Configurator\ConfiguratorRegistryInterface;
 use Ixocreate\Application\PackageInterface;
 use Ixocreate\Application\Service\Registry\ServiceRegistryInterface;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
-use Ixocreate\Event\Package\Bootstrap\SubscriberBootstrapItem;
+use Ixocreate\Event\Bootstrap\SubscriberBootstrapItem;
 
 final class Package implements PackageInterface
 {

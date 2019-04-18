@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Event\Package\Subscriber;
+namespace Ixocreate\Event\Subscriber;
 
 use Ixocreate\ServiceManager\SubManager\SubManager;
 
