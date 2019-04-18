@@ -1,17 +1,17 @@
-# IXOCREATE event
+# IXOCREATE Event Package
 
-[![Build Status](https://travis-ci.com/ixocreate/event.svg?branch=master)](https://travis-ci.com/ixocreate/event)
-[![Coverage Status](https://coveralls.io/repos/github/ixocreate/event/badge.svg?branch=develop)](https://coveralls.io/github/ixocreate/event?branch=develop)
-[![Packagist](https://img.shields.io/packagist/v/ixocreate/event.svg)](https://packagist.org/packages/ixocreate/event)
-[![Packagist Pre Release](https://img.shields.io/packagist/vpre/ixocreate/event.svg)](https://packagist.org/packages/ixocreate/event)
-[![Packagist](https://img.shields.io/packagist/l/ixocreate/event.svg)](https://packagist.org/packages/ixocreate/event)
+[![Build Status](https://travis-ci.com/ixocreate/event-package.svg?branch=master)](https://travis-ci.com/ixocreate/event-package)
+[![Coverage Status](https://coveralls.io/repos/github/ixocreate/event-package/badge.svg?branch=develop)](https://coveralls.io/github/ixocreate/event-package?branch=develop)
+[![Packagist](https://img.shields.io/packagist/v/ixocreate/event-package.svg)](https://packagist.org/packages/ixocreate/event-package)
+[![PHP Version](https://img.shields.io/packagist/php-v/ixocreate/event-package.svg)](https://packagist.org/packages/ixocreate/event-package)
+[![License](https://img.shields.io/github/license/ixocreate/event-package.svg)](LICENSE)
 
 ## Installation
 
 Install the package via composer:
 
 ```sh
-composer require ixocreate/event
+composer require ixocreate/event-package
 ```
 
 ## Testing
@@ -20,6 +20,18 @@ composer require ixocreate/event
 composer install --dev
 phpunit
 ```
+
+## Documentation
+
+Learn more about IXOCREATE by reading its [Documentation](https://ixocreate.github.io/).
+
+## Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
+## Security Vulnerabilities
+
+If you discover security vulnerabilities, please address issues directly to opensource@ixocreate.com via e-mail.
 
 ## License
 
