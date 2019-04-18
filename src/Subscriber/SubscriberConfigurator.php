@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Event\Subscriber;
 
-use Ixocreate\Application\ConfiguratorInterface;
+use Ixocreate\Application\Configurator\ConfiguratorInterface;
 use Ixocreate\Application\Service\ServiceRegistryInterface;
 use Ixocreate\Event\SubscriberInterface;
 use Ixocreate\ServiceManager\Factory\AutowireFactory;

@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace Ixocreate\Event;
 
-use Ixocreate\Application\ConfiguratorRegistryInterface;
-use Ixocreate\Application\PackageInterface;
+use Ixocreate\Application\Configurator\ConfiguratorRegistryInterface;
+use Ixocreate\Application\Package\PackageInterface;
 use Ixocreate\Application\Service\ServiceRegistryInterface;
 use Ixocreate\Event\Subscriber\SubscriberBootstrapItem;
 use Ixocreate\ServiceManager\ServiceManagerInterface;

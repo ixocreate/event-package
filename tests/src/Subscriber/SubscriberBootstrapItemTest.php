@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Test\Event\Subscriber;
 
-use Ixocreate\Application\ConfiguratorInterface;
+use Ixocreate\Application\Configurator\ConfiguratorInterface;
 use Ixocreate\Event\Subscriber\SubscriberBootstrapItem;
 use PHPUnit\Framework\TestCase;
 
