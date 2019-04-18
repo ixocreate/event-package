@@ -9,9 +9,9 @@ declare(strict_types=1);
 
 namespace Ixocreate\Test\Event\Subscriber;
 
-use Ixocreate\Application\ServiceRegistryInterface;
+use Ixocreate\Application\Service\Registry\ServiceRegistryInterface;
 use Ixocreate\Event\Package\Subscriber\SubscriberConfigurator;
-use Ixocreate\ServiceManager\SubManager\SubManagerConfigurator;
+use Ixocreate\Application\Service\SubManagerConfigurator;
 use PHPUnit\Framework\TestCase;
 
 class SubscriberConfiguratorTest extends TestCase

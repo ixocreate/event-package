@@ -9,8 +9,6 @@ declare(strict_types=1);
 
 namespace Ixocreate\Event\Package;
 
-use Ixocreate\Event\Package\EventInterface;
-
 class Event extends \Symfony\Component\EventDispatcher\Event implements EventInterface
 {
     private $propagationStopped = false;
