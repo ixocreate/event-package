@@ -9,13 +9,13 @@ declare(strict_types=1);
 
 namespace Ixocreate\Test\Event;
 
-use Ixocreate\ServiceManager\ServiceManagerInterface;
-use Ixocreate\ServiceManager\SubManager\SubManagerInterface;
 use Ixocreate\Event\Event;
 use Ixocreate\Event\EventDispatcher;
 use Ixocreate\Event\Factory\EventDispatcherFactory;
 use Ixocreate\Event\Subscriber\SubscriberSubManager;
 use Ixocreate\Misc\Event\Subscriber;
+use Ixocreate\ServiceManager\ServiceManagerInterface;
+use Ixocreate\ServiceManager\SubManager\SubManagerInterface;
 use PHPUnit\Framework\TestCase;
 
 class EventDispatcherTest extends TestCase
