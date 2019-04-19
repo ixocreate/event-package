@@ -26,8 +26,10 @@ final class SubscriberConfigurator implements ConfiguratorInterface
      */
     public function __construct()
     {
-        $this->subManagerConfigurator = new SubManagerConfigurator(SubscriberSubManager::class,
-            SubscriberInterface::class);
+        $this->subManagerConfigurator = new SubManagerConfigurator(
+            SubscriberSubManager::class,
+            SubscriberInterface::class
+        );
     }
 
     /**
