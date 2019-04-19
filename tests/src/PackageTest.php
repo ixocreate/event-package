@@ -12,7 +12,7 @@ namespace Ixocreate\Test\Event;
 use Ixocreate\Application\Configurator\ConfiguratorRegistryInterface;
 use Ixocreate\Application\Service\ServiceRegistryInterface;
 use Ixocreate\Event\Package;
-use Ixocreate\Event\SubscriberBootstrapItem;
+use Ixocreate\Event\Subscriber\SubscriberBootstrapItem;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
 use PHPUnit\Framework\TestCase;
 

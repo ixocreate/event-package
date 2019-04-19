@@ -9,13 +9,13 @@ declare(strict_types=1);
 
 namespace Ixocreate\Event\Factory;
 
-use Ixocreate\Event\RegisterInterface;
-use Ixocreate\Event\SubscriberInterface;
+use Ixocreate\Event\Register\Register;
+use Ixocreate\Event\Register\RegisterInterface;
+use Ixocreate\Event\Subscriber\SubscriberInterface;
 use Ixocreate\ServiceManager\FactoryInterface;
 use Ixocreate\ServiceManager\ServiceManagerInterface;
 use Ixocreate\Event\EventDispatcher;
 use Ixocreate\Event\EventWrapper;
-use Ixocreate\Event\Register;
 use Ixocreate\Event\Subscriber\SubscriberSubManager;
 
 final class EventDispatcherFactory implements FactoryInterface

@@ -7,7 +7,7 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Event;
+namespace Ixocreate\Event\Register;
 
 final class Register implements RegisterInterface
 {

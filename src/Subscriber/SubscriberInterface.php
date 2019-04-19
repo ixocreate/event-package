@@ -7,7 +7,9 @@
 
 declare(strict_types=1);
 
-namespace Ixocreate\Event;
+namespace Ixocreate\Event\Subscriber;
+
+use Ixocreate\Event\EventInterface;
 
 interface SubscriberInterface
 {

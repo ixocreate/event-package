@@ -16,7 +16,7 @@ declare(strict_types=1);
 namespace Ixocreate\Misc\Event;
 
 use Ixocreate\Event\EventInterface;
-use Ixocreate\Event\SubscriberInterface;
+use Ixocreate\Event\Subscriber\SubscriberInterface;
 
 class Subscriber implements SubscriberInterface
 {

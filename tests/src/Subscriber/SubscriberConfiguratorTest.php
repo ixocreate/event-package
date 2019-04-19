@@ -44,7 +44,7 @@ class SubscriberConfiguratorTest extends TestCase
                 'dir' => $directory,
                 'recursive' => false,
                 'only' => [
-                    0 => 'Ixocreate\Event\SubscriberInterface',
+                    0 => 'Ixocreate\Event\Subscriber\SubscriberInterface',
                 ],
             ],
         ], $subConfig->getDirectories());

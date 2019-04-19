@@ -23,7 +23,7 @@ class SubscriberBootstrapItemTest extends TestCase
     }
 
     /**
-     * @covers \Ixocreate\Event\SubscriberBootstrapItem
+     * @covers \Ixocreate\Event\Subscriber\SubscriberBootstrapItem
      */
     public function testSubscriber()
     {
