@@ -9,11 +9,10 @@ declare(strict_types=1);
 
 namespace Ixocreate\Event\Subscriber;
 
-use Ixocreate\Contract\Application\ConfiguratorInterface;
-use Ixocreate\Contract\Application\ServiceRegistryInterface;
-use Ixocreate\Contract\Event\SubscriberInterface;
+use Ixocreate\Application\Configurator\ConfiguratorInterface;
+use Ixocreate\Application\Service\ServiceRegistryInterface;
+use Ixocreate\Application\Service\SubManagerConfigurator;
 use Ixocreate\ServiceManager\Factory\AutowireFactory;
-use Ixocreate\ServiceManager\SubManager\SubManagerConfigurator;
 
 final class SubscriberConfigurator implements ConfiguratorInterface
 {
@@ -27,7 +26,10 @@ final class SubscriberConfigurator implements ConfiguratorInterface
      */
     public function __construct()
     {
-        $this->subManagerConfigurator = new SubManagerConfigurator(SubscriberSubManager::class, SubscriberInterface::class);
+        $this->subManagerConfigurator = new SubManagerConfigurator(
+            SubscriberSubManager::class,
+            SubscriberInterface::class
+        );
     }
 
     /**
