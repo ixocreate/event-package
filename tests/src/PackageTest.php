@@ -19,16 +19,6 @@ use PHPUnit\Framework\TestCase;
 class PackageTest extends TestCase
 {
     /**
-     * @var Package
-     */
-    private $package;
-
-    public function setUp()
-    {
-        $this->package = new Package();
-    }
-
-    /**
      * @covers \Ixocreate\Event\Package
      */
     public function testPackage()
@@ -49,19 +39,15 @@ class PackageTest extends TestCase
         $serviceManager->method('getFactoryResolver')->willThrowException(new \InvalidArgumentException('Fail: Package::boot not empty!'));
         $serviceManager->method('getServices')->willThrowException(new \InvalidArgumentException('Fail: Package::boot not empty!'));
 
-        $test = new Package();
+        $package = new Package();
+        $package->configure($configuratorRegistry);
+        $package->addServices($serviceRegistry);
+        $package->boot($serviceManager);
 
-        $test->configure($configuratorRegistry);
-        $test->addServices($serviceRegistry);
-        $test->boot($serviceManager);
-
-        $this->assertSame([SubscriberBootstrapItem::class], $this->package->getBootstrapItems());
-        $this->assertNull($this->package->getConfigProvider());
-        $this->assertSame(
-            \dirname(\dirname(__DIR__)) . '/src/../bootstrap/',
-            $this->package->getBootstrapDirectory()
-        );
-        $this->assertNull($this->package->getConfigDirectory());
-        $this->assertNull($this->package->getDependencies());
+        $this->assertSame([SubscriberBootstrapItem::class], $package->getBootstrapItems());
+        $this->assertNull($package->getConfigProvider());
+        $this->assertDirectoryExists($package->getBootstrapDirectory());
+        $this->assertNull($package->getConfigDirectory());
+        $this->assertNull($package->getDependencies());
     }
 }
