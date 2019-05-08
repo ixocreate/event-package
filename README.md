@@ -1,7 +1,7 @@
 # IXOCREATE Event Package
 
 [![Build Status](https://travis-ci.com/ixocreate/event-package.svg?branch=master)](https://travis-ci.com/ixocreate/event-package)
-[![Coverage Status](https://coveralls.io/repos/github/ixocreate/event-package/badge.svg?branch=develop)](https://coveralls.io/github/ixocreate/event-package?branch=develop)
+[![Coverage Status](https://coveralls.io/repos/github/ixocreate/event-package/badge.svg?branch=master)](https://coveralls.io/github/ixocreate/event-package?branch=master)
 [![Packagist](https://img.shields.io/packagist/v/ixocreate/event-package.svg)](https://packagist.org/packages/ixocreate/event-package)
 [![PHP Version](https://img.shields.io/packagist/php-v/ixocreate/event-package.svg)](https://packagist.org/packages/ixocreate/event-package)
 [![License](https://img.shields.io/github/license/ixocreate/event-package.svg)](LICENSE)
