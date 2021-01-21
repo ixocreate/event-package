@@ -9,8 +9,8 @@ declare(strict_types=1);
 
 namespace Ixocreate\Event\Subscriber;
 
-use Ixocreate\ServiceManager\SubManager\SubManager;
+use Ixocreate\ServiceManager\SubManager\AbstractSubManager;
 
-final class SubscriberSubManager extends SubManager
+final class SubscriberSubManager extends AbstractSubManager
 {
 }

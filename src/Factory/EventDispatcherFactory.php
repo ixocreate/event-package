@@ -34,7 +34,7 @@ final class EventDispatcherFactory implements FactoryInterface
         /** @var SubscriberSubManager $subscriberSubManager */
         $subscriberSubManager = $container->get(SubscriberSubManager::class);
         /** @var SubscriberInterface $service */
-        foreach ($subscriberSubManager->getServices() as $service) {
+        foreach ($subscriberSubManager->services() as $service) {
             $events = $service::register();
             foreach ($events as $currentEvent) {
                 if (\is_string($currentEvent)) {

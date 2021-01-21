@@ -10,7 +10,7 @@ declare(strict_types=1);
 namespace Ixocreate\Test\Event\Subscriber;
 
 use Ixocreate\Application\Service\ServiceRegistryInterface;
-use Ixocreate\Application\Service\SubManagerConfigurator;
+use Ixocreate\Application\ServiceManager\SubManagerConfigurator;
 use Ixocreate\Event\Subscriber\SubscriberConfigurator;
 use PHPUnit\Framework\TestCase;
 

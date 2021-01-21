@@ -12,8 +12,8 @@
         }
     ],
     "require": {
-        "php": "^7.1",
-        "ixocreate/application": "~0.1.0|~0.2.0",
+        "php": "^7.2 || ^8.0",
+        "ixocreate/application": "dev-develop",
         "symfony/event-dispatcher": "^4.1"
     },
     "require-dev": {

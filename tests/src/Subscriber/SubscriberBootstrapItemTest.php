@@ -17,7 +17,7 @@ class SubscriberBootstrapItemTest extends TestCase
 {
     private $subscriber;
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->subscriber = new SubscriberBootstrapItem();
     }
