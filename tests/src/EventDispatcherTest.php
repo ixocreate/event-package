@@ -35,7 +35,7 @@ class EventDispatcherTest extends TestCase
                 switch ($requestedName) {
                     case SubscriberSubManager::class:
                         $mock = $this->getMockBuilder(SubManagerInterface::class)->getMock();
-                        $mock->method('getServices')->willReturn([Subscriber::class]);
+                        $mock->method('services')->willReturn([Subscriber::class]);
                         $mock->method('get')->willReturnMap([
                             [Subscriber::class, $subscriber1],
                         ]);

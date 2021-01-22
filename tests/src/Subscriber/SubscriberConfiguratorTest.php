@@ -40,7 +40,7 @@ class SubscriberConfiguratorTest extends TestCase
         $subConfig->getFactories();
 
         $this->assertSame([
-            [
+            $directory => [
                 'dir' => $directory,
                 'recursive' => false,
                 'only' => [

@@ -81,7 +81,7 @@ class EventDispatcherFactoryTest extends TestCase
                 switch ($requestedName) {
                     case SubscriberSubManager::class:
                         $mock = $this->getMockBuilder(SubManagerInterface::class)->getMock();
-                        $mock->method('getServices')->willReturn($classNames);
+                        $mock->method('services')->willReturn($classNames);
                         $mock->method('get')->willReturnMap($returnMap);
                         return $mock;
                 }
