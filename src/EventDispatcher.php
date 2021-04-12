@@ -31,11 +31,11 @@ final class EventDispatcher
     /**
      * @param string $eventName
      * @param EventInterface $event
-     * @return \Symfony\Component\EventDispatcher\Event
+     * @return \Symfony\Contracts\EventDispatcher\Event
      */
     public function dispatch(string $eventName, EventInterface $event)
     {
-        return $this->dispatcher->dispatch($eventName, new EventWrapper($event));
+        return $this->dispatcher->dispatch(new EventWrapper($event), $eventName);
     }
 
     /**

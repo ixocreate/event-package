@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Event;
 
-final class EventWrapper extends \Symfony\Component\EventDispatcher\Event
+final class EventWrapper extends \Symfony\Contracts\EventDispatcher\Event
 {
     /**
      * @var EventInterface
@@ -45,7 +45,7 @@ final class EventWrapper extends \Symfony\Component\EventDispatcher\Event
     /**
      * @return bool
      */
-    public function isPropagationStopped()
+    public function isPropagationStopped(): bool
     {
         return $this->event->isPropagationStopped();
     }
@@ -53,7 +53,7 @@ final class EventWrapper extends \Symfony\Component\EventDispatcher\Event
     /**
      *
      */
-    public function stopPropagation()
+    public function stopPropagation(): void
     {
         $this->event->stopPropagation();
     }

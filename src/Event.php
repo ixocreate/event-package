@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Ixocreate\Event;
 
-class Event extends \Symfony\Component\EventDispatcher\Event implements EventInterface
+class Event extends \Symfony\Contracts\EventDispatcher\Event implements EventInterface
 {
     private $propagationStopped = false;
 
